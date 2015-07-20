@@ -20,15 +20,19 @@
 	<h4>Posts:</h4>
 
 	  <% author.posts.each do |post| %>
-	  <%= post.title %> <br><br>
+	  <%= post.title %> <br>
 
+<%= link_to "Edit post", edit_post_path(author) %>
+<%= link_to "Delete post", post_path(post), class:'btn btn-sm btn-warning', method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<br>
+	Tags:
 	  <% post.tags.each do |tag| %>
 	  <%= tag.name %>
 	  <% end %>	
 
 
-<%= link_to "Edit post", edit_post_path(author) %>
-<%= link_to "Delete post", post_path(post), class:'btn btn-sm btn-warning', method: :delete, data: {confirm: 'Are you sure?'} %>	
+	
 	  <% end %>
 <br><br>
 	<% end %>
